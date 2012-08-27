@@ -1,17 +1,21 @@
-use inc::Module::Install;
+use 5.006;
+use strict;
+use warnings;
+use ExtUtils::MakeMaker;
 
-name     'Dancer-Plugin-EmptyGIF';
-all_from 'lib/Dancer/Plugin/EmptyGIF.pm';
-author   q{David Moreno <david@axiombox.com>};
-license  'mit';
-
-perl_version '5.010';
-
-requires 'Dancer' => '1.3091';
-
-test_requires 'lib::abs';
-test_requires 'Test::More';
-
-auto_install;
-
-WriteAll;
+WriteMakefile(
+    NAME                => 'Dancer::Plugin::EmptyGIF',
+    AUTHOR              => q{David Moreno <david@axiombox.com},
+    VERSION_FROM        => 'lib/Dancer/Plugin/EmptyGIF.pm',
+    ABSTRACT_FROM       => 'lib/Dancer/Plugin/EmptyGIF.pm',
+    ($ExtUtils::MakeMaker::VERSION >= 6.3002
+      ? ('LICENSE'=> 'perl')
+      : ()),
+    PL_FILES            => {},
+    PREREQ_PM => {
+        'Test::More'    => 0,
+        'lib::abs'      => 0,
+    },
+    dist                => { COMPRESS => 'gzip -9f', SUFFIX => 'gz', },
+    clean               => { FILES => 'Dancer-Plugin-EmptyGIF-*' },
+);
