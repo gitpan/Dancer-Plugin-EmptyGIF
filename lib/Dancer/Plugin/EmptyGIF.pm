@@ -52,7 +52,7 @@ use Dancer ':syntax';
 use Dancer::Plugin;
 use MIME::Base64;
 
-our $VERSION = '0.2';
+our $VERSION = '0.3';
 
 register empty_gif => sub {
     header('Content-Type' => 'image/gif');

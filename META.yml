@@ -18,6 +18,7 @@ no_index:
     - t
     - inc
 requires:
+  Dancer: 0
   Test::More: 0
   lib::abs: 0
-version: 0.2
+version: 0.3
